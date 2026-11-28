@@ -1,34 +1,30 @@
 # 徐峰（Feng Xu）
 
-**AI 玩法与智能 NPC 系统设计 · AI 评测（Eval）与质量工程（QA Lead，2020 至今）** · 上海
+平时在做 AI 交互玩法原型、评测（Eval）体系和游戏质量工程（2020 至今，上海）。
 
 [![Portfolio CI](https://github.com/feng46430-cloud/ai-engineering-portfolio/actions/workflows/verify.yml/badge.svg)](https://github.com/feng46430-cloud/ai-engineering-portfolio/actions/workflows/verify.yml)
 [![Starlight CI](https://github.com/feng46430-cloud/starlight-market-ai-npc-blueprint/actions/workflows/verify.yml/badge.svg)](https://github.com/feng46430-cloud/starlight-market-ai-npc-blueprint/actions/workflows/verify.yml)
 
-<img src="https://raw.githubusercontent.com/feng46430-cloud/starlight-market-ai-npc-blueprint/main/media/01_blind_start_theater.png" alt="星海交易局 Unity 6 URP 3D AI-NPC 实验原型" width="100%" />
+<img src="https://raw.githubusercontent.com/feng46430-cloud/starlight-market-ai-npc-blueprint/main/media/01_blind_start_theater.png" alt="星海交易局 Unity 6 URP 3D AI-NPC 原型" width="100%" />
 
-专注用**确定性规则边界、不注水的自动化评测与可控变量实验**解决 AI 交互玩法和质量工程里的真实问题。
+这里主要放两块公开的工作记录——遇到什么问题、当时试了什么思路、跑出来是什么结果，按主题分好了入口，挑感兴趣的地方看就行：
 
----
-
-### 核心公开仓库（2 个主入口）
-
-1. **[`ai-engineering-portfolio`](https://github.com/feng46430-cloud/ai-engineering-portfolio)** — **综合作品集主入口（推荐先看）**  
-   含 5 项核心实证：AI 评测打假（拆穿 98% 假全绿、“注入率 ≠ 表达率”）、5,000 盒抽卡防摸包与期望守恒仿真、4 段端到端延迟控变量拆解与底层排障、废弃连线画布的产品减法实拍对比、以及 5-Gate 文档×源码防幻觉 QA 规范。
-2. **[`starlight-market-ai-npc-blueprint`](https://github.com/feng46430-cloud/starlight-market-ai-npc-blueprint)** — **《星海交易局》3D AI-NPC 实验原型**  
-   Unity 6 URP 盲测博弈原型（规则层隔离账本与机密、单机 16 GiB 显卡 `9.30 GiB` 四模型本地演示环境）、3 轮云端 `L4 BF16` 批跑实测记录（如实公开当前 `48.62 · F` 开放缺陷与通用精排负向边界实证）与本地校验脚本。
+- **[`ai-engineering-portfolio`](https://github.com/feng46430-cloud/ai-engineering-portfolio)** — **综合工程笔记与仿真脚本**  
+  按主题收录了 5 块记录：AI 评测口径校准与记忆指标拆分、5,000 盒抽卡保底概率与防摸包仿真、4 段端到端延迟拆解与底层排障、废弃连线画布的交互迭代记录、以及文档×源码对齐的 5-Gate QA 流程。
+- **[`starlight-market-ai-npc-blueprint`](https://github.com/feng46430-cloud/starlight-market-ai-npc-blueprint)** — **《星海交易局》3D AI-NPC 原型进度记录**  
+  Unity 6 URP 情报博弈原型的架构笔记与持续迭代记录（规则层隔离账本与机密、本机 16 GiB 显卡 `9.30 GiB` 四模型联调环境、Run 01–04 云端 `L4 BF16` 批跑演进日志与本地校验脚本）。
 
 <details>
-<summary><strong>30 秒本地零依赖验证命令</strong></summary>
+<summary><strong>本地零依赖脚本（想直接跑着看的话）</strong></summary>
 
 ```bash
-# 1) 5,000 盒卡池概率守恒与防摸包仿真 + 数值校准 + HITL CAS 单测
+# 1) 卡池概率仿真、长周期曲线校准与 HITL CAS 内存态校验单测
 git clone https://github.com/feng46430-cloud/ai-engineering-portfolio.git
 python ai-engineering-portfolio/02-ai-eval-and-simulation/demo-simulation/run_gacha_box_sim.py
 python ai-engineering-portfolio/02-ai-eval-and-simulation/demo-simulation/run_sim.py
 node --test ai-engineering-portfolio/01-multi-agent-orchestrator/mve/mve.test.mjs
 
-# 2) 核验《星海交易局》Run 03 脱敏诊断快照重算与严格定级审计
+# 2) 核验《星海交易局》Run 03 脱敏评测快照的评分重算与门禁校验
 git clone https://github.com/feng46430-cloud/starlight-market-ai-npc-blueprint.git
 python starlight-market-ai-npc-blueprint/repro/verify_scorecard.py
 ```
@@ -37,4 +33,4 @@ python starlight-market-ai-npc-blueprint/repro/verify_scorecard.py
 
 ---
 
-*声明：以上仓库架构规格、评测体系与验收由本人主导，协同 AI Coding 工具实现；内容已脱敏，不含任职企业 NDA 资产。*
+*注：仓库中的架构思路、评测设计与验收由本人主导，编码与脚本协同 AI Coding 工具完成；内容均已脱敏，不含任职企业 NDA 资产。*
